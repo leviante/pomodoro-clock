@@ -1,0 +1,39 @@
+#clock {
+  display: grid;
+  grid-template-columns: repeat(2, 200px);
+  justify-content: center;
+  grid-gap: 50px;
+  background-color: white;
+  border-radius: 5px;
+  width: 500px;
+  padding: 30px 0px;
+
+  .buttons {
+    grid-column: 1/3;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+}
+@media (max-width: 420px) {
+  #clock {
+    width: 380px;
+    grid-template-columns: repeat(2, 180px);
+    grid-gap: 20px;
+    padding-bottom: 0px;
+  }
+}
+
+@media (max-width: 375px) {
+  #clock {
+    width: 300px;
+    grid-template-columns: repeat(2, 140px);
+    grid-gap: 10px;
+    padding-bottom: 0px;
+
+    .buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
