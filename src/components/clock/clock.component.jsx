@@ -84,18 +84,41 @@ class Clock extends React.Component {
 
   interval = null; //setting up a property to allow buttons to stop the interval
 
-  initializeInterval = (formatSession, formatBreak) => {
+  initializeInterval = () => {
     this.interval = setInterval(() => {
       //setting it's value in here ^
-      this.handleInterval(formatSession, formatBreak);
+      this.handleInterval();
     }, 1000);
   };
 
-  handleInterval = (formatSession, formatBreak) => {
-    const { timerState, modifiedTime, isWorking } = this.state;
+  handleInterval = () => {
+    const { timerState, modifiedTime, isWorking, Break, Session } = this.state;
 
+    //getting formatBreak and formatSession again because
+    //the program only enters the interval once so if you
+    //change the length while timer is on, it won't notice
+    //the changes and continue from initial values
+
+    const formatBreak =
+      Break === 60
+        ? "60:00"
+        : moment()
+            .minute(Break)
+            .seconds(0)
+            .format("mm:ss");
+
+    const formatSession =
+      Session === 60
+        ? "60:00"
+        : moment()
+            .minute(Session)
+            .seconds(0)
+            .format("mm:ss");
+
+    //take session time if state is session, break time if not
     const initialTime = timerState === "Session" ? formatSession : formatBreak;
 
+    //edge case 1 - need to switch the timer on the next cycle
     if (modifiedTime === "00:00") {
       this.audio.current.currentTime = 0;
       this.audio.current.play();
@@ -115,6 +138,7 @@ class Clock extends React.Component {
       }
     }
 
+    //edge case 2 - moment.js recognizes 60:00 as 00:00 thus it needs to be hardcoded
     if (initialTime === "60:00" && !isWorking) {
       return this.setState({
         isWorking: true,
@@ -122,6 +146,7 @@ class Clock extends React.Component {
       });
     }
 
+    //default case, subtract 1 and change state
     const newMoment = moment(modifiedTime || initialTime, "mm:ss").subtract(
       1,
       "seconds"
@@ -132,6 +157,7 @@ class Clock extends React.Component {
       modifiedTime: newMoment.format("mm:ss")
     });
   };
+
   render() {
     const {
       Break,
