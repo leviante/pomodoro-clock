@@ -1,68 +1,31 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# React Pomodoro Clock
 
-In the project directory, you can run:
+This project is designed as a **freeCodeCamp** certification project for **Front End Libraries** module.
 
-### `npm start`
+Created using [Create React App](https://github.com/facebook/create-react-app) boilerplate.
+  
+Click [here](https://leviante.github.io/pomodoro-clock/) to start using the clock.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## To see the code
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Check out `src` folder to see the written files.
 
-### `npm test`
+- `components` : Contains components and their stylesheets that are used in this project.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Since there quite a few reused components in this project, the file directory looks a bit complicated compared to other certification projects.
 
-### `npm run build`
+Rest of the files inside are part of the boilerplate, thus I just changed their content to tailor them to this specific project.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## How To Use
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+1. Navigate to the webpage provided above.
+2. There are **2** main controls, one for **session** length, other for **break length**. You will see the updated session length as you change it.
+3. Simply adjust these length values to your liking.
+4. Press the **start** button located in the bottom left corner.
+5. The timer will start the countdown based on chosen values. When the session countdown ends, it will **alarm the user** that it is over and will switch to break countdown. When the break countdown ends, the same thing will happen and the timer will continue to cycle through these values.
+6. To reset the application, press the **reset** button located in the bottom right corner.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+*Additional info*: It is possible to change the values **while the timer is working**, if you change the values, timer will continue it's cycle based on the new values.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+*For example*, while the timer is counting the session, if user changes the session length to something different, the timer will use the new value on the next turn.
